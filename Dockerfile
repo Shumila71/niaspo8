@@ -1,11 +1,11 @@
-FROM couchbase:latest
+FROM node:latest
 
-ENV CB_REST_USERNAME=admin \
-    CB_REST_PASSWORD=password \
-    CB_SERVICES=data,index,query,fts \
-    CB_BUCKET_TYPE=couchbase \
-    CB_BUCKET_NAME=my_bucket \
-    CB_BUCKET_RAMSIZE_MB=100 \
-    CB_BUCKET_REPLICA=1
+WORKDIR /usr/src/app
 
-EXPOSE 8091 8092 8093 8094 8095 8096 11210
+COPY . .
+
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["node", "app.js"]
