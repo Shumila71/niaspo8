@@ -17,4 +17,4 @@ WORKDIR $APP_HOME
 RUN mvn package
 
 # Команда для запуска приложения (замените <имя_главного_класса> на имя главного класса вашего приложения)
-CMD ["java", "-jar", "target/main.jar"]
+CMD ["java", "-jar", "target/docker-maven-1.0-SNAPSHOT.jar.jar"]
